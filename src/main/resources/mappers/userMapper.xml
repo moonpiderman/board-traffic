@@ -6,7 +6,7 @@
 <mapper namespace="com.large.board.mapper.UserProfileMapper">
     <select id="getUserProfile" resultType="com.large.board.dto.UserDTO">
         SELECT id, userId, password, nickName, createTime, isWithDraw, status
-        FROM user
+        FROM users
         WHERE id = #{id}
     </select>
 
@@ -16,7 +16,7 @@
     </insert>
 
     <update id="updateUserProfile" parameterType="com.large.board.dto.UserDTO">
-        UPDATE user
+        UPDATE users
         SET password=#{password},
             nickName=#{nickName},
             isWithDraw=#{isWithDraw},
@@ -26,12 +26,12 @@
 
     <delete id="deleteUserProfile">
         DELETE
-        FROM user
+        FROM users
         WHERE userId = #{id}
     </delete>
 
     <insert id="register" parameterType="com.large.board.dto.UserDTO">
-        INSERT INTO user (userId, passWord, nickName, createTime, isWithDraw, status)
+        INSERT INTO users (userId, passWord, nickName, createTime, isWithDraw, status)
         VALUES (#{userId}, #{password}, #{nickName}, #{createTime}, #{isWithDraw}, #{status})
     </insert>
 
@@ -43,7 +43,7 @@
                createTime,
                isWithDraw,
                status
-        FROM user
+        FROM users
         WHERE id = #{id}
           AND passWord = #{password}
           AND status != 'DELETE'
@@ -57,7 +57,7 @@
                createTime,
                isWithDraw,
                status
-        FROM user
+        FROM users
         WHERE userId = #{userId}
           AND passWord = #{password}
           AND status != 'DELETE'
@@ -65,12 +65,12 @@
 
     <select id="idCheck" resultType="int">
         SELECT COUNT(id)
-        FROM user
+        FROM users
         WHERE userId = #{userId}
     </select>
 
     <update id="updatePassword" parameterType="com.large.board.dto.UserDTO">
-        UPDATE user
+        UPDATE users
         SET passWord = #{password}
         WHERE userId = #{userId}
     </update>
