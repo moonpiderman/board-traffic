@@ -44,7 +44,7 @@
                isWithDraw,
                status
         FROM users
-        WHERE id = #{id}
+        WHERE userId = #{id}
           AND passWord = #{password}
           AND status != 'DELETE'
     </select>

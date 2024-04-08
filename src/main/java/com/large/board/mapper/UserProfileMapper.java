@@ -17,11 +17,11 @@ public interface UserProfileMapper {
 
     int deleteUserProfile(@Param("id") String id);
 
-    public int register(UserDTO userDTO);
+    int register(UserDTO userDTO);
 
-    public UserDTO findByIdAndPassword(@Param("id") String id, @Param("password") String password);
+    UserDTO findByIdAndPassword(@Param("id") String id, @Param("password") String password);
 
     int idCheck(String id);
 
-    public int updatePassword(UserDTO user);
+    int updatePassword(UserDTO user);
 }
