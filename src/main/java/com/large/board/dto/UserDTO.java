@@ -11,6 +11,10 @@ import java.util.Date;
 @ToString
 public class UserDTO {
 
+    public static boolean hasNullDataBeforeSignUp(UserDTO userDTO) {
+        return userDTO.getUserId() == null || userDTO.getPassword() == null || userDTO.getNickName() == null;
+    }
+
     public enum Status {
         DEFAULT, ADMIN, DELETED
     }

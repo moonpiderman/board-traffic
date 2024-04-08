@@ -17,6 +17,8 @@ public interface UserProfileMapper {
 
     int deleteUserProfile(@Param("id") String id);
 
+    public int register(UserDTO userDTO);
+
     public UserDTO findByIdAndPassword(@Param("id") String id, @Param("password") String password);
 
     boolean checkId(@Param("id") String id);
