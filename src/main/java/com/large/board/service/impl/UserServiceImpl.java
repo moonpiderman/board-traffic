@@ -50,12 +50,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean isDuplicatedId(String id) {
-        return userProfileMapper.checkId(id);
+        return userProfileMapper.idCheck(id) == 1;
     }
 
     @Override
     public UserDTO getUserInfo(String userId) {
-        return null;
+        return userProfileMapper.getUserProfile(userId);
     }
 
     @Override

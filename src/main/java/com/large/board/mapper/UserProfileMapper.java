@@ -21,7 +21,7 @@ public interface UserProfileMapper {
 
     public UserDTO findByIdAndPassword(@Param("id") String id, @Param("password") String password);
 
-    boolean checkId(@Param("id") String id);
+    int idCheck(String id);
 
     public int updatePassword(UserDTO user);
 }

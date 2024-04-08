@@ -1,5 +1,6 @@
 package com.large.board.controller;
 
+import com.large.board.aop.LoginCheck;
 import com.large.board.dto.UserDTO;
 import com.large.board.dto.request.UserDeleteId;
 import com.large.board.dto.request.UserLoginRequest;
@@ -87,6 +88,7 @@ public class UserController {
     }
 
     @PatchMapping("/password")
+    @LoginCheck(userType = LoginCheck.UserType.USER)
     public ResponseEntity<LoginResponse> updateUserPassword(
             @RequestBody UserUpdatePasswordRequest userUpdatePasswordRequest,
             HttpSession session
