@@ -115,7 +115,7 @@ public class UserController {
             HttpSession session
     ) {
         ResponseEntity<LoginResponse> response = null;
-        String id = userDeleteId.getId();
+        String id = userDeleteId.getUserId();
         String password = userDeleteId.getPassword();
 
         try {

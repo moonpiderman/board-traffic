@@ -74,6 +74,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteId(String id, String password) {
+        String p = "";
         String cryptoPassword = encryptionPassword(password);
         UserDTO userDTO = userProfileMapper.findByIdAndPassword(id, cryptoPassword);
 
