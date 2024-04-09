@@ -44,7 +44,7 @@ public class LoginCheckAspect {
 
         Object[] modifiedArgument = proceedingJoinPoint.getArgs();
 
-        if (proceedingJoinPoint != null) {
+        if (proceedingJoinPoint.getArgs() != null) {
             modifiedArgument[idIndex] = id;
         }
 

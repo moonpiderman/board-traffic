@@ -7,7 +7,7 @@
     <select id="getUserProfile" resultType="com.large.board.dto.UserDTO">
         SELECT id, userId, password, nickName, createTime, isWithDraw, status
         FROM users
-        WHERE id = #{id}
+        WHERE userId = #{id}
     </select>
 
     <insert id="insertUserProfile" parameterType="com.large.board.dto.UserDTO">

@@ -90,16 +90,16 @@ public class UserController {
     @PatchMapping("/password")
     @LoginCheck(userType = LoginCheck.UserType.USER)
     public ResponseEntity<LoginResponse> updateUserPassword(
+            @RequestParam("accountId") String accountId,
             @RequestBody UserUpdatePasswordRequest userUpdatePasswordRequest,
             HttpSession session
     ) {
         ResponseEntity<LoginResponse> response = null;
-        String id = SessionUtil.getLoginMemberId(session);
         String beforePassword = userUpdatePasswordRequest.getBeforePassword();
         String afterPassword = userUpdatePasswordRequest.getAfterPassword();
 
         try {
-            userService.updatePassword(id, beforePassword, afterPassword);
+            userService.updatePassword(accountId, beforePassword, afterPassword);
             response = new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             log.error("비밀번호 변경 실패! {}", e.getMessage());
