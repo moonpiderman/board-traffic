@@ -7,6 +7,9 @@
     <insert id="register" parameterType="com.large.board.dto.PostDTO">
         INSERT INTO post (name, isAdmin, contents, createTime, views, categoryId, userId, fileId, updateTime )
         VALUES (#{name}, #{isAdmin}, #{contents}, #{createTime}, #{views}, #{categoryId}, #{userId}, #{fileId}, #{updateTime})
+        <selectKey keyProperty="id" resultType="Integer" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
     </insert>
 
     <select id="selectMyProducts" resultType="com.large.board.dto.PostDTO">
